@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const argv = require("./arguments");
 const findGitRepos = require("./findGitRepos");
 const getGitHistory = require("./getGitHistory");
