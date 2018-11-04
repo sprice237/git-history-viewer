@@ -9,11 +9,11 @@ const getDirectories = source => fs.readdirSync(source).filter(name => isDirecto
 function findGitRepos(dir, baseDir) {
     dir = dir || cwd();
     baseDir = baseDir || cwd();
-    
+
     const directories = getDirectories(dir);
     const hasGitDir = directories.find(name => name === '.git') != null;
     if (hasGitDir) {
-        return [path.relative(baseDir, dir)];
+        return [path.resolve(dir) === path.resolve(baseDir) ? "." : path.relative(baseDir, dir)];
     } else {
         return Array.prototype.concat.apply([], getDirectories(dir).map(name => findGitRepos(path.join(dir, name), baseDir)));
     }
