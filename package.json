@@ -1,6 +1,6 @@
 {
   "name": "git-history-viewer",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -9,10 +9,11 @@
   "author": "Sean Price <sean@seanprice.io>",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "yargs": "^12.0.2"
   },
   "bin": {
-    "git-history-viewer": "index"
+    "git-history-viewer": "index.js"
   }
 }

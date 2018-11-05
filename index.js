@@ -6,6 +6,8 @@ const getGitHistory = require("./getGitHistory");
 const parseGitHistoryLine = require("./parseGitHistoryLine");
 const filterGitHistory = require("./filterGitHistory");
 const flattenHistory = require("./flattenHistory");
+const orderHistoryEntries = require("./orderHistoryEntries");
+const formatHistoryEntries = require("./formatHistoryEntries");
 
 const histories = findGitRepos(argv.directory)
     .map(gitRepoPath => ({
@@ -15,5 +17,7 @@ const histories = findGitRepos(argv.directory)
             .filter(filterGitHistory)
     }));
 
-const flattenedHistories = flattenHistory(histories);
-console.log(flattenedHistories);
+const flattenedHistoryEntries = flattenHistory(histories)
+const orderedHistories = orderHistoryEntries(flattenedHistoryEntries)
+const formattedHistoryEntries = formatHistoryEntries(orderedHistories);
+console.log(formattedHistoryEntries);
